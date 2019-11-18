@@ -1,4 +1,5 @@
-import React, { useState, createContext } from 'react'
+import React, { useState, createContext, useEffect } from 'react'
+import axios from 'axios';
 
 
 export const AppContext = createContext()
@@ -12,16 +13,14 @@ export const AppContextProvider = props => {
     // }
     useEffect(() => {
   
-        axiosWithAuth()
-            .get("/api/unknown")
+        axios
+            .get("https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty")
             .then(response => { 
                 console.log(response)
-                // setComments(response.data)
+                setComments(response.data)
                 })
             .catch(error => console.error('Server Error', error));
       }, [setComments]);
-
-    console.log("CartContext: cart", cart)
     
     return (
         <AppContext.Provider value={[comments, setComments]} >

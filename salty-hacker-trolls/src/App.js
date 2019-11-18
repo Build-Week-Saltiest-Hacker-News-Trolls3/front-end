@@ -1,13 +1,17 @@
 import React from 'react';
 import { Route } from "react-router-dom";
 
+import { AppContextProvider } from './contexts/AppContext'
+import UserFeed from './components/MainApp/UserFeed'
 
 
 function App() {
   return (
-    <div className="App">
-        
-    </div>
+    <AppContextProvider>
+      <div className="App">
+         {/* <UserFeed />  */}
+      </div>
+    </AppContextProvider>
   );
 }
 
