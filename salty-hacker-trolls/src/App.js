@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './App.css';
+import './components/LoginForm';
+import FormikRegistrationForm from './components/RegistrationForm';
+import FormikLoginForm from './components/LoginForm';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+        <Link to='/login-form'>Login</Link>
+        <Link to='/registration-form'>Sign Up</Link>
+      </nav>
+      <Switch>
+        <Route path='/login-form' component={FormikLoginForm}/>
+        <Route path='/registration-form' component={FormikRegistrationForm}/>
+      </Switch>
     </div>
+    </Router>
   );
 }
 
