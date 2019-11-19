@@ -1,30 +1,34 @@
 import React from 'react';
-import { Route, Link, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
+import OnboardNav from './components/onboarding/OnboardNav';
+import DashNav from './components//MainApp/DashNav';
+import LoginForm from './components/onboarding/LoginForm';
+import RegistrationForm from './components/onboarding/RegistrationForm';
+import SuccessPage from './components/onboarding/SuccessPage';
 
-import './components/LoginForm';
-import FormikRegistrationForm from './components/RegistrationForm';
-import FormikLoginForm from './components/LoginForm';
-import { AppContextProvider } from './contexts/AppContext'
-import UserFeed from './components/MainApp/UserFeed'
+import { AppContextProvider } from './contexts/AppContext';
+import UserFeed from './components/MainApp/UserFeed';
+import FavoritesPage from './components/MainApp/FavoritesPage';
 import PrivateRoute from './PrivateRoute';
+
 
 
 function App() {
   return (
     <AppContextProvider>
       <div className="App">
-         <nav>
-        <Link to='/login'>Login</Link>
-        <Link to='/registration'>Sign Up</Link>
-      </nav>
-      <Switch>
-        <Route path='/login' component={FormikLoginForm}/>
-        <Route path='/registration' component={FormikRegistrationForm}/>
-        <PrivateRoute exact path='/userfeed' component={UserFeed}/>
-      </Switch>
+        <Route exact path={['/registration', '/login', '/success']} component={OnboardNav}/>
+        <Route exact path={['/feed', '/favorites']} component={DashNav}/>
+
+        <Route exact path='/login' component={LoginForm}/>
+        <Route exact path='/registration' component={RegistrationForm}/>
+        <Route exact path='/success' component={SuccessPage}/>
+
+        <PrivateRoute exact path='/feed' component={UserFeed}/>
+        <PrivateRoute exact path='/favorites' component={FavoritesPage}/>
       </div>
     </AppContextProvider>
   ) 
 }
 
-export default App
+export default App;

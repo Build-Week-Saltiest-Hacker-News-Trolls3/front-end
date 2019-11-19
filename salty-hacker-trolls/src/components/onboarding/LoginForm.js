@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 // import styled from 'styled-components';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 
-import axiosWithAuth from '../utils/AxiosWithAuth'
+import axiosWithAuth from '../../utils/AxiosWithAuth';
 
 const LoginForm = ({values, errors, touched, status }) => {
     const [users, setUsers] = useState([]);
@@ -18,7 +17,7 @@ const LoginForm = ({values, errors, touched, status }) => {
             <h1>Log In</h1>
             <Field placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
 
-            <Field placeholder='Password' type='text' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
+            <Field placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
 
             <button type='submit'>Log In</button>
         </Form>
@@ -33,8 +32,8 @@ const FormikLoginForm = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        username: Yup.string().required(),
-        password: Yup.string().required()
+        username: Yup.string().required().min(3),
+        password: Yup.string().required().min(6)
     }),
     handleSubmit(values, {props, setStatus, resetForm}){
         console.log('Values', values)
@@ -42,10 +41,11 @@ const FormikLoginForm = withFormik({
         axiosWithAuth()
             .post('/api/auth/login', values)
             .then(response => {
+                localStorage.setItem('token', response.data.payload);
                 setStatus(response.data);
                 console.log('Response', response);
                 // resetForm({});
-                props.history.push('/userfeed')
+                props.history.push('/feed')
             })
             .catch(error => console.log('No dice.', error.response));
     }

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import styled from 'styled-components';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
-
-import axiosWithAuth from '../utils/AxiosWithAuth'
+import axiosWithAuth from '../../utils/AxiosWithAuth';
 
 const RegistrationForm = ({ values, errors, touched, status }) => {
     const [users, setUsers] = useState([]);
@@ -17,11 +16,11 @@ const RegistrationForm = ({ values, errors, touched, status }) => {
             <h1>Sign Up</h1>
             {/* <Field placeholder='Name' type='text' name='name'/>{touched.name && errors.name && ( <p className='errors'>{errors.name}</p>)}
 
-            <Field placeholder='Email' type='text' name='email'/>{touched.email && errors.email && ( <p className='errors'>{errors.email}</p>)} */}
+            <Field placeholder='Email' type='email' name='email'/>{touched.email && errors.email && ( <p className='errors'>{errors.email}</p>)} */}
 
             <Field placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
             
-            <Field placeholder='Password' type='text' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
+            <Field placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
 
             <button type='submit'>Sign Up</button>
         </Form>
@@ -39,10 +38,10 @@ const FormikRegistrationForm = withFormik({
     validationSchema: Yup.object().shape({
         // name: Yup.string().required(),
         // email: Yup.string().email().required(),
-        username: Yup.string().required(),
-        password: Yup.string().required()
+        username: Yup.string().required().min(3),
+        password: Yup.string().required().min(6)
     }),
-    handleSubmit(values, {setStatus, resetForm}){
+    handleSubmit(values, {props, setStatus, resetForm}){
         console.log('Values', values)
         axiosWithAuth()
             .post('/api/auth/register', values)
@@ -50,6 +49,7 @@ const FormikRegistrationForm = withFormik({
                 // setStatus(response.data);
                 console.log(response);
                 // resetForm({});
+                props.history.push('/success');
             })
             .catch(error => console.log('No dice.', error.response));
     }
