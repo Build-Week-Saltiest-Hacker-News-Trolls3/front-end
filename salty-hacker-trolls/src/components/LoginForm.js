@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 // import styled from 'styled-components';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+
+import axiosWithAuth from '../utils/AxiosWithAuth'
 
 const LoginForm = ({values, errors, touched, status }) => {
     const [users, setUsers] = useState([]);
@@ -27,20 +29,23 @@ const FormikLoginForm = withFormik({
     mapPropsToValues({ username, password }) {
         return {
             username: username || '',
-            password: password || '',
+            password: password || ''
         };
     },
     validationSchema: Yup.object().shape({
         username: Yup.string().required(),
         password: Yup.string().required()
     }),
-    handleSubmit(values, {setStatus, resetForm}){
-        axios
-            .post('https://reqres.in/api/users/', values)
+    handleSubmit(values, {props, setStatus, resetForm}){
+        console.log('Values', values)
+        console.log('Props', props)
+        axiosWithAuth()
+            .post('/api/auth/login', values)
             .then(response => {
                 setStatus(response.data);
-                console.log(response);
-                resetForm({});
+                console.log('Response', response);
+                // resetForm({});
+                props.history.push('/userfeed')
             })
             .catch(error => console.log('No dice.', error.response));
     }
