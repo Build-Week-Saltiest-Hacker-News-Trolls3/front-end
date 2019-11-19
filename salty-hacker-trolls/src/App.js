@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Link, Switch } from "react-router-dom";
 
-import './App.css';
 import './components/LoginForm';
 import FormikRegistrationForm from './components/RegistrationForm';
 import FormikLoginForm from './components/LoginForm';
@@ -24,5 +23,7 @@ function App() {
       </Switch>
       </div>
     </AppContextProvider>
+  ) 
+}
 
-export default App;
+export default App
