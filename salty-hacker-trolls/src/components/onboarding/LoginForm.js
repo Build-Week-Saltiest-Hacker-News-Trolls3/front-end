@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 // import styled from 'styled-components';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
-
 import axiosWithAuth from '../../utils/AxiosWithAuth';
 
 const LoginForm = ({values, errors, touched, status }) => {
