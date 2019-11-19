@@ -1,15 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
+
 import './App.css';
 import './components/LoginForm';
 import FormikRegistrationForm from './components/RegistrationForm';
 import FormikLoginForm from './components/LoginForm';
+import { AppContextProvider } from './contexts/AppContext'
+import UserFeed from './components/MainApp/UserFeed'
+
 
 function App() {
   return (
-    <Router>
-    <div className="App">
-      <nav>
+    <AppContextProvider>
+      <div className="App">
+         {/* <UserFeed />  */}
+         <nav>
         <Link to='/login-form'>Login</Link>
         <Link to='/registration-form'>Sign Up</Link>
       </nav>
@@ -17,9 +22,7 @@ function App() {
         <Route path='/login-form' component={FormikLoginForm}/>
         <Route path='/registration-form' component={FormikRegistrationForm}/>
       </Switch>
-    </div>
-    </Router>
-  );
-}
+      </div>
+    </AppContextProvider>
 
 export default App;
