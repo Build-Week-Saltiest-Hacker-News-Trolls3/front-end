@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import styled from 'styled-components';
 import {withFormik} from 'formik';
 import * as Yup from 'yup';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
@@ -16,9 +15,7 @@ const RegistrationForm = ({ values, errors, touched, status }) => {
         <FormContainer>
             <StyledForm>
                 <FormHeader>create account</FormHeader>
-                {/* <Field placeholder='Name' type='text' name='name'/>{touched.name && errors.name && ( <p className='errors'>{errors.name}</p>)}
 
-                <Field placeholder='Email' type='email' name='email'/>{touched.email && errors.email && ( <p className='errors'>{errors.email}</p>)} */}
                 <InputWrapper>
                     <FormLabel>username:</FormLabel>
                     <FormField placeholder=' ...' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
@@ -37,26 +34,20 @@ const RegistrationForm = ({ values, errors, touched, status }) => {
 const FormikRegistrationForm = withFormik({
     mapPropsToValues({ username, password }) {
         return {
-            // name: name || '',
-            // email: email || '',
             username: username || '',
             password: password || '',
         };
     },
     validationSchema: Yup.object().shape({
-        // name: Yup.string().required(),
-        // email: Yup.string().email().required(),
         username: Yup.string().required().min(3),
         password: Yup.string().required().min(6)
     }),
-    handleSubmit(values, {props, setStatus, resetForm}){
+    handleSubmit(values, {props, setStatus}){
         console.log('Values', values)
         axiosWithAuth()
             .post('/api/auth/register', values)
             .then(response => {
-                // setStatus(response.data);
                 console.log(response);
-                // resetForm({});
                 props.history.push('/success');
             })
             .catch(error => console.log('No dice.', error.response));

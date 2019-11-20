@@ -9,7 +9,7 @@ const OnboardNav = () => {
             <Nav>
                 <NavTitle>Hacker News' Saltiest Trolls</NavTitle>
                 <Links>
-                    <StyledNavLink to='/login'>login</StyledNavLink>
+                    <StyledNavLink to='/'>login</StyledNavLink>
                     <p> | </p>  
                     <StyledNavLink to='/registration'>sign up</StyledNavLink>
                 </Links>

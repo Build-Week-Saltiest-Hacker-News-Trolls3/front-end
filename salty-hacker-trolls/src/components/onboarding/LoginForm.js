@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import styled from 'styled-components';
 import {withFormik} from 'formik';
 import * as Yup from 'yup';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
@@ -46,8 +45,7 @@ const FormikLoginForm = withFormik({
         username: Yup.string().required().min(3),
         password: Yup.string().required().min(3)
     }),
-    handleSubmit(values, {props, setStatus}){
-        
+    handleSubmit(values, {props, setStatus}){   
         console.log('Values', values)
         console.log('Props', props)
         axiosWithAuth()
