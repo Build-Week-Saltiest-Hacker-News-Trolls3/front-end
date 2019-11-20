@@ -45,7 +45,7 @@ const FormikLoginForm = withFormik({
                 console.log('Response', response);
                 localStorage.setItem('token', response.data.payload);
                 setStatus(response.data)
-                props.history.push('/userfeed')
+                props.history.push('/feed')
             })
             .catch(error => console.log('No dice.', error.response));
     }

@@ -1,13 +1,17 @@
 import React from 'react';
-import { Route, Link, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
+import OnboardNav from './components/onboarding/OnboardNav';
+import DashNav from './components//MainApp/DashNav';
+import LoginForm from './components/onboarding/LoginForm';
+import RegistrationForm from './components/onboarding/RegistrationForm';
+import SuccessPage from './components/onboarding/SuccessPage';
 
-import './components/LoginForm';
-import FormikRegistrationForm from './components/RegistrationForm';
-import FormikLoginForm from './components/LoginForm';
-import { AppContextProvider } from './contexts/AppContext'
-import UserFeed from './components/MainApp/UserFeed'
+import { AppContextProvider } from './contexts/AppContext';
+import UserFeed from './components/MainApp/UserFeed';
+import FavoritesPage from './components/MainApp/FavoritesPage';
 import PrivateRoute from './PrivateRoute';
 import FavoritesPage from './components/MainApp/FavoritesPage';
+
 
 
 function App() {
@@ -31,4 +35,4 @@ function App() {
   ) 
 }
 
-export default App
+export default App;
