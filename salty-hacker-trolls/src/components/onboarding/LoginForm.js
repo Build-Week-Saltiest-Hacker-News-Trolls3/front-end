@@ -18,13 +18,13 @@ const LoginForm = ({values, errors, touched, status }) => {
                 <FormHeader>Log In</FormHeader>
                 
                 <InputWrapper>
-                <FormLabel>Username</FormLabel>
-                <FormField placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
+                    <FormLabel>Username</FormLabel>
+                    <FormField placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
                 </InputWrapper>
 
                 <InputWrapper>
-                <FormLabel>Password</FormLabel>
-                <FormField placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
+                    <FormLabel>Password</FormLabel>
+                    <FormField placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
                 </InputWrapper>
 
                 <FormButton type='submit'>Log In</FormButton>

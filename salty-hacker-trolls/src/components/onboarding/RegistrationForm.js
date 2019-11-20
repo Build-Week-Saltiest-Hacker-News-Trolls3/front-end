@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
-import { FormHeader } from '../../styles/FormStyles';
+import { FormContainer, StyledForm, FormHeader, InputWrapper, FormLabel, FormField, FormButton } from '../../styles/FormStyles';
 
 const RegistrationForm = ({ values, errors, touched, status }) => {
     const [users, setUsers] = useState([]);
@@ -13,19 +13,25 @@ const RegistrationForm = ({ values, errors, touched, status }) => {
     }, [status]);
 
     return(
-        <Form>
-            <FormHeader>Sign Up</FormHeader>
-            {/* <Field placeholder='Name' type='text' name='name'/>{touched.name && errors.name && ( <p className='errors'>{errors.name}</p>)}
+        <FormContainer>
+            <StyledForm>
+                <FormHeader>Sign Up</FormHeader>
+                {/* <Field placeholder='Name' type='text' name='name'/>{touched.name && errors.name && ( <p className='errors'>{errors.name}</p>)}
 
-            <Field placeholder='Email' type='email' name='email'/>{touched.email && errors.email && ( <p className='errors'>{errors.email}</p>)} */}
-            <label>Username</label>
-            <Field placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
-            
-            <label>Password</label>
-            <Field placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
+                <Field placeholder='Email' type='email' name='email'/>{touched.email && errors.email && ( <p className='errors'>{errors.email}</p>)} */}
+                <InputWrapper>
+                    <FormLabel>Username</FormLabel>
+                    <FormField placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
+                </InputWrapper>
+                
+                <InputWrapper>
+                    <FormLabel>Password</FormLabel>
+                    <FormField placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
+                </InputWrapper>
 
-            <button type='submit'>Sign Up</button>
-        </Form>
+                <FormButton type='submit'>Sign Up</FormButton>
+            </StyledForm>
+        </FormContainer>
     )
 }
 const FormikRegistrationForm = withFormik({
