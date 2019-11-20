@@ -10,6 +10,7 @@ import { AppContextProvider } from './contexts/AppContext';
 import UserFeed from './components/MainApp/UserFeed';
 import FavoritesPage from './components/MainApp/FavoritesPage';
 import PrivateRoute from './PrivateRoute';
+import FavoritesPage from './components/MainApp/FavoritesPage';
 
 
 
@@ -17,15 +18,18 @@ function App() {
   return (
     <AppContextProvider>
       <div className="App">
-        <Route exact path={['/registration', '/login', '/success']} component={OnboardNav}/>
-        <Route exact path={['/feed', '/favorites']} component={DashNav}/>
-
-        <Route exact path='/login' component={LoginForm}/>
-        <Route exact path='/registration' component={RegistrationForm}/>
-        <Route exact path='/success' component={SuccessPage}/>
-
-        <PrivateRoute exact path='/feed' component={UserFeed}/>
+         <nav>
+        <Link to='/login'>Login</Link>
+        <Link to='/registration'>Sign Up</Link>
+        <Link to='/favorites'>Favorites</Link>
+        <Link to='/userfeed'>Feed</Link>
+      </nav>
+     
+        <Route path='/login' component={FormikLoginForm}/>
+        <Route path='/registration' component={FormikRegistrationForm}/>
+        <PrivateRoute exact path='/userfeed' component={UserFeed}/>
         <PrivateRoute exact path='/favorites' component={FavoritesPage}/>
+  
       </div>
     </AppContextProvider>
   ) 
