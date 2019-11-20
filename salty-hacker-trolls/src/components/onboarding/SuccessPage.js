@@ -6,7 +6,7 @@ const SuccessPage = () => {
     return (
         <div>
             <h1>You've successfully registered!</h1>
-            <Link to="/login">
+            <Link to="/">
                 <button>Log In</button>
             </Link>
         </div>
