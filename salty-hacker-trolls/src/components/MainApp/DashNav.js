@@ -8,6 +8,7 @@ const DashNav = () => {
             <nav>
                 <NavLink to='/feed'>Feed</NavLink>
                 <NavLink to='/favorites'>Favorites</NavLink>
+                <NavLink to='/login'>Log Out</NavLink>
             </nav>
         </div>
     )

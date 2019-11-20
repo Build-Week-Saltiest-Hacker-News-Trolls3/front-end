@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import styled from 'styled-components';
-import {withFormik, Form, Field} from 'formik';
+import {withFormik} from 'formik';
 import * as Yup from 'yup';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
 import { FormContainer, StyledForm, FormHeader, InputWrapper, FormLabel, FormField, FormButton } from '../../styles/FormStyles';
