@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { connect } from 'react-redux';
+
 import Favorite from './Favorite'
 import axiosWithAuth from '../../utils/AxiosWithAuth'
-import { PageContainer, TitleContainer, PageTitle, PageSubtitle } from '../../styles/PageStyles';
 
 const FavoritesPage = (props) => {
 
@@ -20,14 +20,10 @@ const FavoritesPage = (props) => {
   }, []);
 
     return (
-        <PageContainer>
-             <TitleContainer>
-                <PageTitle>favorite salty comments</PageTitle>
-                <PageSubtitle>your favorite salty comments</PageSubtitle>
-            </TitleContainer>
+        <div>
             {/* map over favorites */}
             {favorites.map(fav => <Favorite key={fav.id} fav={fav} favorites={favorites} setFavorites={setFavorites}/>)}
-        </PageContainer>
+        </div>
     )
 }
 

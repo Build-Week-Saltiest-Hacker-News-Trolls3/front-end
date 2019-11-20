@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { useHistory } from "react-router-dom";
+
 import axiosWithAuth from '../../utils/AxiosWithAuth'
-import { Card } from '../../styles/CardStyles';
 
 const Favorite = (props) => {
     console.log('Favorite props', props)
@@ -25,13 +25,13 @@ const Favorite = (props) => {
     let history = useHistory();
 
     return (
-        <Card className='favoriteCard'>
-            <h2>{props.fav.troll_username}</h2>
+        <div className='favoriteCard'>
+            <h3>Troll Name: {props.fav.troll_username}</h3>
             <p>{props.fav.troll_comment}</p>
             <button onClick={deleteFav}>
-				delete
+				Delete
 			</button>
-        </Card>
+        </div>
     )
 }
 

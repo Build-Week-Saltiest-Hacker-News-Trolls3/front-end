@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axiosWithAuth from '../../utils/AxiosWithAuth'
 import { connect } from 'react-redux';
-import { Card } from '../../styles/CardStyles';
 
 const CommentCard = (props) => {
     // console.log('commentcard props', props)
@@ -31,16 +30,16 @@ const CommentCard = (props) => {
 //   console.log("Troll", troll)
     
     return (
-        <Card className='commentCard'>
-            <h3> {props.comment.troll_name}</h3>
+        <div className='commentCard'>
+            <h3>Troll Name: {props.comment.troll_name}</h3>
             {troll ? 
-            <h3> saltiness score: {troll.salty_rank}</h3> 
+            <h3>Troll Salty Score: {troll.salty_rank}</h3> 
             : <h3>Loading...</h3>}
             <p>{props.comment.comment_text}</p>
             <button onClick={addNewFav}>
-				favorite
+				Add to Favorites
 			</button>
-        </Card>
+        </div>
     )
 }
 
