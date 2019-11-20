@@ -42,12 +42,13 @@ const FormikRegistrationForm = withFormik({
         username: Yup.string().required(),
         password: Yup.string().required()
     }),
-    handleSubmit(values, {setStatus, resetForm}){
+    handleSubmit(values, {props, setStatus, resetForm}){
         console.log('Values', values)
+        console.log("Props", props)
         axiosWithAuth()
             .post('/api/auth/register', values)
             .then(response => {
-                // setStatus(response.data);
+                setStatus(response.data);
                 console.log(response);
                 // resetForm({});
             })

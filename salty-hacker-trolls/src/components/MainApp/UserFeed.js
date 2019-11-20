@@ -5,11 +5,17 @@ import { AppContext } from '../../contexts/AppContext'
 
 const UserFeed = () => {
 
-const [comments] = useContext(AppContext)
+const [comments, addFavorite] = useContext(AppContext)
+
+console.log('comments', comments)
 
     return (
-        <div>
-            {comments.map((comment, index) => <CommentCard comment={comment} key={index} />)}
+        <div className='feedContainer'>
+            <h1>Hacker News</h1>
+            <h3>Saltiest Troll Comments</h3>
+        <div className='commentCardContainer'>
+            {comments.map(comment => <CommentCard addFavorite={addFavorite} comment={comment} key={comment.id} />)}
+        </div>
         </div>
     )
 }

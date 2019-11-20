@@ -36,15 +36,15 @@ const FormikLoginForm = withFormik({
         username: Yup.string().required(),
         password: Yup.string().required()
     }),
-    handleSubmit(values, {props, setStatus, resetForm}){
+    handleSubmit(values, {props, setStatus){
         console.log('Values', values)
         console.log('Props', props)
         axiosWithAuth()
             .post('/api/auth/login', values)
             .then(response => {
-                setStatus(response.data);
                 console.log('Response', response);
-                // resetForm({});
+                localStorage.setItem('token', response.data.payload);
+                setStatus(response.data)
                 props.history.push('/userfeed')
             })
             .catch(error => console.log('No dice.', error.response));
