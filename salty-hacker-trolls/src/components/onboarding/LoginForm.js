@@ -4,6 +4,8 @@ import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
 import { FormContainer, StyledForm, FormHeader, InputWrapper, FormLabel, FormField, FormButton } from '../../styles/FormStyles';
+import { connect } from 'react-redux';
+import { setUserID } from '../../actions'
 
 const LoginForm = ({values, errors, touched, status }) => {
     const [users, setUsers] = useState([]);
@@ -33,6 +35,7 @@ const LoginForm = ({values, errors, touched, status }) => {
     )
 }
 const FormikLoginForm = withFormik({
+    
     mapPropsToValues({ username, password }) {
         return {
             username: username || '',
@@ -43,7 +46,8 @@ const FormikLoginForm = withFormik({
         username: Yup.string().required().min(3),
         password: Yup.string().required().min(6)
     }),
-    handleSubmit(values, {props, setStatus, resetForm}){
+    handleSubmit(values, {props, setStatus}){
+        
         console.log('Values', values)
         console.log('Props', props)
         axiosWithAuth()
@@ -52,11 +56,11 @@ const FormikLoginForm = withFormik({
                 localStorage.setItem('token', response.data.payload);
                 setStatus(response.data);
                 console.log('Response', response);
-                // resetForm({});
+                props.setUserID(response.data.id)
                 props.history.push('/feed')
             })
             .catch(error => console.log('No dice.', error.response));
     }
 })(LoginForm);
 
-export default FormikLoginForm;
+export default connect(null, { setUserID })(FormikLoginForm);

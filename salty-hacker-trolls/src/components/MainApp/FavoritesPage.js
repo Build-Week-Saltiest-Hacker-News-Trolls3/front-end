@@ -1,18 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux';
 
-import { AppContext } from '../../contexts/AppContext'
 import Favorite from './Favorite'
+import axiosWithAuth from '../../utils/AxiosWithAuth'
 
-const FavoritesPage = () => {
+const FavoritesPage = (props) => {
 
-    const [, , favorites] = useContext(AppContext)
 
     return (
         <div>
             {/* map over favorites */}
-                {favorites.map(fav => <Favorite key={fav.id} fav={fav} />)} 
+            {props.favorites.map(fav => <Favorite key={fav.id} fav={fav} />)}
         </div>
     )
 }
 
-export default FavoritesPage
+const mapStateToProps = state => {
+    return {
+        favorites: state.favorites,
+        userID: state.userID
+    }
+}
+
+export default connect(mapStateToProps, {})(FavoritesPage);
