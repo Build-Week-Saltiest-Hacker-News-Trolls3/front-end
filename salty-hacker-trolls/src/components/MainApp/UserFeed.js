@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
-
 import CommentCard from './CommentCard'
 import { fetchComments } from '../../actions'
+import { PageContainer, LoadingMessage } from '../../styles/PageStyles';
 
 const UserFeed = ({fetchComments, ...props}) => {
 
@@ -14,18 +14,19 @@ const UserFeed = ({fetchComments, ...props}) => {
     
 
     if (props.isLoading) {
-        return <h2>Loading Comments List...</h2>
+        return (<PageContainer>
+        <LoadingMessage>loading salty comments...</LoadingMessage>
+        </PageContainer>
+        )
     }
 
     return (
-        <div className='feedContainer'>
-            <h1>Hacker News</h1>
-            <h3>Saltiest Troll Comments</h3>
+        <PageContainer className='feedContainer'>
             <div className='commentCardContainer'>
                 {props.error && <p>{props.error}</p>}
                 {props.comments.map(comment => <CommentCard comment={comment} key={comment.comment_uuid} />)}
             </div>
-        </div>
+        </PageContainer>
     )
 }
 

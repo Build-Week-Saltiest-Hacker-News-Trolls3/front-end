@@ -9,6 +9,18 @@ margin: 0 auto;
 padding: 20% 0;
 `
 
+export const SuccessContainer = Styled.div`
+background-color: whitesmoke;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+margin: 0 auto;
+padding: 0 25%;
+box-shadow: 2px 10px 15px;
+width: 50%;
+`
+
 export const StyledForm = Styled(Form)`
 background-color: whitesmoke;
 display: flex;

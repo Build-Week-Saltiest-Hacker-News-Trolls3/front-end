@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 export const NavContainer = Styled.div`
 text-align: center;
+background: white;
+position: fixed;
+padding: 1%;
+width: 100%;
 `
 
 export const Nav = Styled.nav`
