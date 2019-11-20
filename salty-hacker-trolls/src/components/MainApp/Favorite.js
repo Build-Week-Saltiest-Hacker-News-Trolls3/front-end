@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { useHistory } from "react-router-dom";
 
 import axiosWithAuth from '../../utils/AxiosWithAuth'
+import DescPanel from './DescPanel'
 
 const Favorite = (props) => {
     console.log('Favorite props', props)
@@ -14,20 +14,18 @@ const Favorite = (props) => {
         .then(response => { 
             console.log('deletefav', response)
             const newFavoritesList = props.favorites.filter(el => {
-                return el.id !== response.data.id
+                return el.id !== parseInt(response.data.id)
               })
               props.setFavorites(newFavoritesList);
-              history.push('/favorites')
+            console.log('newFavoritesList', newFavoritesList)
             })
         .catch(error => console.error('Server Error', error));
     }
 
-    let history = useHistory();
-
     return (
         <div className='favoriteCard'>
             <h3>Troll Name: {props.fav.troll_username}</h3>
-            <p>{props.fav.troll_comment}</p>
+            <DescPanel commentContent={props.fav.troll_comment} />
             <button onClick={deleteFav}>
 				Delete
 			</button>

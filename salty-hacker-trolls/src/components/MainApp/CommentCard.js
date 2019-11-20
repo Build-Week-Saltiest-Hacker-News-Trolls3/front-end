@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axiosWithAuth from '../../utils/AxiosWithAuth'
 import { connect } from 'react-redux';
+import Stars from './Stars';
+import DescPanel from './DescPanel'
+import styled from 'styled-components';
 
 const CommentCard = (props) => {
     // console.log('commentcard props', props)
@@ -33,9 +36,9 @@ const CommentCard = (props) => {
         <div className='commentCard'>
             <h3>Troll Name: {props.comment.troll_name}</h3>
             {troll ? 
-            <h3>Troll Salty Score: {troll.salty_rank}</h3> 
+            <ScoreContainer className='scoreContainer'><div><Score>Troll Salty Score:</Score></div><Stars saltyRank={troll.salty_rank} /></ScoreContainer> 
             : <h3>Loading...</h3>}
-            <p>{props.comment.comment_text}</p>
+            <DescPanel commentContent={props.comment.comment_text} />
             <button onClick={addNewFav}>
 				Add to Favorites
 			</button>
@@ -50,3 +53,13 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {})(CommentCard);
+
+const ScoreContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+const Score = styled.h3`
+    margin: 0;
+    padding: 0;
+`

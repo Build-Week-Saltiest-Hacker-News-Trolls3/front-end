@@ -5,7 +5,7 @@ import CommentCard from './CommentCard'
 import { fetchComments } from '../../actions'
 
 const UserFeed = ({fetchComments, ...props}) => {
-
+//destructured fetchComments to put in useEffect dependency array
     console.log('CommentsListProps', props)
 
     useEffect(() => {
@@ -19,8 +19,6 @@ const UserFeed = ({fetchComments, ...props}) => {
 
     return (
         <div className='feedContainer'>
-            <h1>Hacker News</h1>
-            <h3>Saltiest Troll Comments</h3>
             <div className='commentCardContainer'>
                 {props.error && <p>{props.error}</p>}
                 {props.comments.map(comment => <CommentCard comment={comment} key={comment.comment_uuid} />)}
