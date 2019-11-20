@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
+import { FormContainer, StyledForm, FormHeader, InputWrapper, FormLabel, FormField, FormButton } from '../../styles/FormStyles';
 
 const LoginForm = ({values, errors, touched, status }) => {
     const [users, setUsers] = useState([]);
@@ -12,15 +13,23 @@ const LoginForm = ({values, errors, touched, status }) => {
     }, [status]);
 
     return(
-        <Form>
-            <h1>Log In</h1>
-            <Field placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
+        <FormContainer>
+            <StyledForm>
+                <FormHeader>Log In</FormHeader>
+                
+                <InputWrapper>
+                <FormLabel>Username</FormLabel>
+                <FormField placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
+                </InputWrapper>
 
-            <Field placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
+                <InputWrapper>
+                <FormLabel>Password</FormLabel>
+                <FormField placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
+                </InputWrapper>
 
-            <button type='submit'>Log In</button>
-        </Form>
-       
+                <FormButton type='submit'>Log In</FormButton>
+            </StyledForm>
+        </FormContainer>
     )
 }
 const FormikLoginForm = withFormik({

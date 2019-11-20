@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
+import { FormHeader } from '../../styles/FormStyles';
 
 const RegistrationForm = ({ values, errors, touched, status }) => {
     const [users, setUsers] = useState([]);
@@ -13,13 +14,14 @@ const RegistrationForm = ({ values, errors, touched, status }) => {
 
     return(
         <Form>
-            <h1>Sign Up</h1>
+            <FormHeader>Sign Up</FormHeader>
             {/* <Field placeholder='Name' type='text' name='name'/>{touched.name && errors.name && ( <p className='errors'>{errors.name}</p>)}
 
             <Field placeholder='Email' type='email' name='email'/>{touched.email && errors.email && ( <p className='errors'>{errors.email}</p>)} */}
-
+            <label>Username</label>
             <Field placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
             
+            <label>Password</label>
             <Field placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
 
             <button type='submit'>Sign Up</button>
