@@ -15,21 +15,21 @@ const RegistrationForm = ({ values, errors, touched, status }) => {
     return(
         <FormContainer>
             <StyledForm>
-                <FormHeader>Sign Up</FormHeader>
+                <FormHeader>create account</FormHeader>
                 {/* <Field placeholder='Name' type='text' name='name'/>{touched.name && errors.name && ( <p className='errors'>{errors.name}</p>)}
 
                 <Field placeholder='Email' type='email' name='email'/>{touched.email && errors.email && ( <p className='errors'>{errors.email}</p>)} */}
                 <InputWrapper>
-                    <FormLabel>Username</FormLabel>
-                    <FormField placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
+                    <FormLabel>username:</FormLabel>
+                    <FormField placeholder=' ...' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
                 </InputWrapper>
                 
                 <InputWrapper>
-                    <FormLabel>Password</FormLabel>
-                    <FormField placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
+                    <FormLabel>password:</FormLabel>
+                    <FormField placeholder=' ...' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
                 </InputWrapper>
 
-                <FormButton type='submit'>Sign Up</FormButton>
+                <FormButton type='submit'>submit</FormButton>
             </StyledForm>
         </FormContainer>
     )
