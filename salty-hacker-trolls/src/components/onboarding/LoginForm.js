@@ -17,19 +17,19 @@ const LoginForm = ({values, errors, touched, status }) => {
     return(
         <FormContainer>
             <StyledForm>
-                <FormHeader>Log In</FormHeader>
+                <FormHeader>login</FormHeader>
                 
                 <InputWrapper>
-                    <FormLabel>Username</FormLabel>
-                    <FormField placeholder='Username' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
+                    <FormLabel>username:</FormLabel>
+                    <FormField placeholder=' ...' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
                 </InputWrapper>
 
                 <InputWrapper>
-                    <FormLabel>Password</FormLabel>
-                    <FormField placeholder='Password' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
+                    <FormLabel>password:</FormLabel>
+                    <FormField placeholder=' ...' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
                 </InputWrapper>
 
-                <FormButton type='submit'>Log In</FormButton>
+                <FormButton type='submit'>submit</FormButton>
             </StyledForm>
         </FormContainer>
     )
@@ -44,7 +44,7 @@ const FormikLoginForm = withFormik({
     },
     validationSchema: Yup.object().shape({
         username: Yup.string().required().min(3),
-        password: Yup.string().required().min(6)
+        password: Yup.string().required().min(3)
     }),
     handleSubmit(values, {props, setStatus}){
         

@@ -1,15 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { NavTitle, NavContainer, Nav, Links, StyledNavLink } from '../../styles/NavStyles';
 
 const OnboardNav = () => {
 
     return(
-        <div>
-            <nav>
-                <NavLink to='/login'>Login</NavLink>
-                <NavLink to='/registration'>Sign Up</NavLink>
-            </nav>
-        </div>
+        <NavContainer>
+            <Nav>
+                <NavTitle>Hacker News' Saltiest Trolls</NavTitle>
+                <Links>
+                    <StyledNavLink to='/login'>login</StyledNavLink>
+                    <p> | </p>  
+                    <StyledNavLink to='/registration'>sign up</StyledNavLink>
+                </Links>
+            </Nav>
+        </NavContainer>
     )
 }
 
