@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import CommentCard from './CommentCard'
 import { fetchComments } from '../../actions'
-import { PageContainer, LoadingMessage } from '../../styles/PageStyles';
+import { PageContainer, LoadingMessage, TitleContainer, PageTitle, PageSubtitle } from '../../styles/PageStyles';
 
 const UserFeed = ({fetchComments, ...props}) => {
 
@@ -22,6 +22,10 @@ const UserFeed = ({fetchComments, ...props}) => {
 
     return (
         <PageContainer className='feedContainer'>
+             <TitleContainer>
+                <PageTitle>salty comment feed</PageTitle>
+                <PageSubtitle>only comments deemed salty will appear here</PageSubtitle>
+            </TitleContainer>
             <div className='commentCardContainer'>
                 {props.error && <p>{props.error}</p>}
                 {props.comments.map(comment => <CommentCard comment={comment} key={comment.comment_uuid} />)}
