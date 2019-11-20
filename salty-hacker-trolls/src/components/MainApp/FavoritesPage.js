@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Favorite from './Favorite'
 import axiosWithAuth from '../../utils/AxiosWithAuth'
 
+
+
 const FavoritesPage = (props) => {
 
     const [favorites, setFavorites] = useState([])
@@ -17,7 +19,7 @@ const FavoritesPage = (props) => {
             setFavorites(response.data)
             })
         .catch(error => console.error('Server Error', error));
-  }, []);
+  }, [setFavorites]);
 
     return (
         <div>
