@@ -14,19 +14,22 @@ width: 78%;
 margin: 1% auto;
 background: #f56603;
 display: flex;
-justify-content: space-between;
+flex-wrap: wrap;
+justify-content: space-around;
 align-items: center;
+align-text: center;
 max-width: 100%;
 padding: 0 1%;
 
 p{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 `
 
 export const NavTitle = Styled.h1`
 padding: 0 1%;
 white-space: nowrap;
+font-size: 1.2rem
 `
 
 export const Links = Styled.div`
@@ -36,7 +39,7 @@ justify-content: space-between;
 `
 
 export const StyledNavLink = Styled(NavLink)`
-font-size: 1.6rem;
+font-size: 1.2rem;
 text-decoration: none;
 color: black;
 white-space: nowrap;

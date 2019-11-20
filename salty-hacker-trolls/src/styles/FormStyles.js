@@ -7,6 +7,9 @@ height: 100vh;
 width: 80%;
 margin: 0 auto;
 padding: 20% 0;
+@media (max-width:500px){
+    padding-top: 60%;  
+   }
 `
 
 export const SuccessContainer = Styled.div`
@@ -59,6 +62,10 @@ width: 300px;
 margin: 2%;
 font-size: 1.6rem;
 border-radius: 5px;
+@media (max-width:500px){
+    height 1.2rem;
+    width: 15rem;   
+   }
 `
 export const FormButton = Styled.button`
 height: 60px;

@@ -6,12 +6,14 @@ const DashNav = () => {
 
     return (
         <NavContainer>
-            <Nav style={{position:'fixed', left:'10%'}}>
-                <NavTitle>Hacker News' Saltiest Troll|comments</NavTitle>
+            <Nav style={{position:'fixed', left:'10%', display:'flex', flexWrap:'wrap'}}>
+                <NavTitle>HackerNews' SaltiestTrolls</NavTitle>
                 <Links>
                     <StyledNavLink to='/feed'>feed</StyledNavLink>
                     <p> | </p>  
                     <StyledNavLink to='/favorites'>favorites</StyledNavLink>
+                    <p> | </p>  
+                    <StyledNavLink to='/trolls'>trolls</StyledNavLink>
                     <p> | </p>  
                     <StyledNavLink to='/'>logout</StyledNavLink>
                 </Links>
