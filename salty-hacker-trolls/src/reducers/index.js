@@ -2,8 +2,7 @@ import {
     FETCH_COMMENTS_START,
     FETCH_COMMENTS_SUCCESS,
     FETCH_COMMENTS_FAILURE,
-    SET_USER_ID,
-    ADD_FAVORITE
+    SET_USER_ID
 } from '../actions'
 
 const initialState = {
@@ -18,7 +17,7 @@ const initialState = {
     ],
     isLoading: false,
     error: '',
-    userID: 0,
+    userID: 4,
     favorites: []
 }
 
@@ -49,12 +48,6 @@ export const reducer = (state = initialState, {type, payload}) => {
                 ...state,
                 userID: payload
             };
-        case ADD_FAVORITE:
-            return {
-                ...state,
-                favorites: [...state.favorites, payload]
-            }
-        
         default:
             return state;
     }

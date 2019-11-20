@@ -12,6 +12,7 @@ const UserFeed = ({fetchComments, ...props}) => {
         fetchComments()
     }, [fetchComments])
     
+
     if (props.isLoading) {
         return <h2>Loading Comments List...</h2>
     }
@@ -22,7 +23,7 @@ const UserFeed = ({fetchComments, ...props}) => {
             <h3>Saltiest Troll Comments</h3>
             <div className='commentCardContainer'>
                 {props.error && <p>{props.error}</p>}
-                {props.comments.map(comment => <CommentCard comment={comment} key={comment.id} />)}
+                {props.comments.map(comment => <CommentCard comment={comment} key={comment.comment_uuid} />)}
             </div>
         </div>
     )
@@ -32,7 +33,7 @@ const mapStateToProps = state => {
     return {
         comments: state.comments,
         isLoading: state.isLoading,
-        error: state.error
+        error: state.error,
     }
 }
 

@@ -25,9 +25,3 @@ export const setUserID = (userID) => {
     return { type: SET_USER_ID, payload: userID}
 }
 
-export const ADD_FAVORITE = 'ADD_FAVORITE';
-
-export const addFavorite = (favorite) => {
-    console.log('addFavorite action called')
-    return { type: ADD_FAVORITE, payload: favorite }
-}
