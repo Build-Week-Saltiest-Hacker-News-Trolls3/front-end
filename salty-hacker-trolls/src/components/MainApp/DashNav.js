@@ -5,17 +5,17 @@ import { NavTitle, NavContainer, Nav, Links, StyledNavLink } from '../../styles/
 const DashNav = () => {
 
     return (
-        <NavContainer>
-            <Nav style={{position:'fixed', left:'10%', display:'flex', flexWrap:'wrap'}}>
-                <NavTitle>HackerNews' SaltiestTrolls</NavTitle>
-                <Links>
-                    <StyledNavLink to='/feed'>feed</StyledNavLink>
+        <NavContainer className='dash-nav-container'>
+            <Nav className='dash-nav'>
+                <NavTitle className='nav-title'>HackerNews' SaltiestTrolls</NavTitle>
+                <Links className='links-container'>
+                    <StyledNavLink className='feed-link' to='/feed'>feed</StyledNavLink>
                     <p> | </p>  
-                    <StyledNavLink to='/favorites'>favorites</StyledNavLink>
+                    <StyledNavLink className='fav-link' to='/favorites'>favorites</StyledNavLink>
                     <p> | </p>  
-                    <StyledNavLink to='/trolls'>trolls</StyledNavLink>
+                    <StyledNavLink className='trolls-link'to='/trolls'>trolls</StyledNavLink>
                     <p> | </p>  
-                    <StyledNavLink to='/'>logout</StyledNavLink>
+                    <StyledNavLink className='login-link'to='/'>logout</StyledNavLink>
                 </Links>
             </Nav>
         </NavContainer>
