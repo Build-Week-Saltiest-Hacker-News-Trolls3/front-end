@@ -42,7 +42,7 @@ export const ButtonImage = styled.img`
     width: 25px;
     height: 25px;
     background: whitesmoke;
-    margin-top: 4px;
+    margin-top: 14px;
     margin-left: 3px;
 
     &:hover {

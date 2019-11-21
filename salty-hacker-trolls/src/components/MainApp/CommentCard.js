@@ -31,13 +31,15 @@ const CommentCard = (props) => {
         .catch(error => console.error('Server Error', error.message));
     }
 
+    const rank = troll.salty_rank * 10
+
 //   console.log("Troll", troll)
     
     return (
         <Card className='commentCard'>
             <h3>{props.comment.troll_name}</h3>
             {troll ? 
-            <ScoreContainer className='scoreContainer'><div><Score>saltiness:</Score></div><Stars saltyRank={troll.salty_rank} /></ScoreContainer> 
+            <ScoreContainer className='scoreContainer'><div><Score>saltiness:</Score></div><Stars saltyRank={rank} /></ScoreContainer> 
             : <h3>Loading...</h3>}
             <DescPanel commentContent={props.comment.comment_text} />
             <Button className='favButton' onClick={addNewFav}>

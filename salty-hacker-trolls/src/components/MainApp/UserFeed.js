@@ -23,7 +23,7 @@ const UserFeed = ({fetchComments, ...props}) => {
                 </PageContainer>)
     }
     
-    const numberOfComments = showMore ? props.comments.length : 50
+    const numberOfComments = showMore ? props.comments.length : 100
 
     return (
         <PageContainer className='feed-container'>

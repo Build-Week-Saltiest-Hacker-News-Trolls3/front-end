@@ -19,7 +19,7 @@ const FavoritesPage = (props) => {
             setFavorites(response.data)
             })
         .catch(error => console.error('Server Error', error));
-  }, [setFavorites]);
+  }, [props.userID, setFavorites]);
 
     return (
         <PageContainer className='fav-page-container'>
