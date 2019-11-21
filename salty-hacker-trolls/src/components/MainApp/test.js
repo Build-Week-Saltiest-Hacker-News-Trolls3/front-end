@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
 
 import CommentCard from './CommentCard'
 import { fetchComments } from '../../actions'
 
-const UserFeed = ({fetchComments, ...props}) => {
+class UserFeed extends React.component {
     //destructured fetchComments to put in useEffect dependency array
-        console.log('CommentsListProps', props)
+        constructor(props){
+            super(props)
+            
+            this.state = {
+                visible: 5
+            }
+        }
     
-        const [ showMore, setShowMore ] = useState(false)
     
         const handleClick = () => setShowMore(true)
         
@@ -21,7 +26,8 @@ const UserFeed = ({fetchComments, ...props}) => {
             return <h2>Loading Comments List...</h2>
         }
     
-        const numberOfComments = showMore ? props.comments.length : 50
+        const updatedComments = setVisibleComments(visibleComments + 10)
+        const numberOfComments = showMore ? updatedComments : visableComments
     
     
         return (
