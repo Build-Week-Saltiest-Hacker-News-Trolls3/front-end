@@ -26,7 +26,3 @@ const StarsContainer = styled.div`
     padding: 0;
 `;
 
-const styledStarsComponent = styled(StarRatingComponent)`
-    margin: 0;
-    padding: 0;
-`;

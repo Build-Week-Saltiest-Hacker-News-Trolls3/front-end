@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { NavTitle, NavContainer, Nav, Links, StyledNavLink } from '../../styles/NavStyles';
 
 const DashNav = () => {
