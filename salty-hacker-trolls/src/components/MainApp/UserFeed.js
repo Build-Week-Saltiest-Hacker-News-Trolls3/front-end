@@ -21,7 +21,7 @@ const UserFeed = ({fetchComments, ...props}) => {
             return <h2>Loading Comments List...</h2>
         }
     
-        const numberOfComments = showMore ? props.comments.length : 50
+        const numberOfComments = showMore ? props.comments.length : 10
     
     
         return (
