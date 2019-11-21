@@ -7,7 +7,7 @@ import { Button } from '../../styles/CardStyles';
 const TrollList = () => {
 
     const [ showMore, setShowMore ] = useState(false)
-    const [ trolls, setTrolls] = useState([]);
+    const [ trolls, setTrolls ] = useState([]);
 
     const handleClick = () => setShowMore(true)
 
