@@ -17,8 +17,6 @@ const UserFeed = ({fetchComments, ...props}) => {
           fetchComments()
       }, [fetchComments])
         
-    
-
     if (props.isLoading) {
         return (<PageContainer className='loading-container'>
                     <LoadingMessage className='loading-message'>loading comments...</LoadingMessage>

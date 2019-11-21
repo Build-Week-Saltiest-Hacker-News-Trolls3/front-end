@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
 import TrollCard from './TrollCard'
 import { PageContainer, TitleContainer, PageTitle, PageSubtitle } from '../../styles/PageStyles';
+import { Button } from '../../styles/CardStyles';
 
 const TrollList = () => {
+
+    const [ showMore, setShowMore ] = useState(false)
     const [ trolls, setTrolls] = useState([]);
+
+    const handleClick = () => setShowMore(true)
 
     useEffect(() =>{
         axiosWithAuth()
@@ -17,13 +22,16 @@ const TrollList = () => {
 
     }, []);
 
+    const numberOfTrolls = showMore ? trolls.length : 100
+
     return(
         <PageContainer className='troll-page-container'>
             <TitleContainer className='troll-page-title-container'>
                 <PageTitle className='troll-page-title'>saltiness leaderboard</PageTitle>
                 <PageSubtitle className='troll-page-subtitle'> {"\u2193"} ranked saltiest to least salty {"\u2193"}</PageSubtitle>
             </TitleContainer>
-            {trolls.map(troll => <TrollCard key={troll.id} troll={troll} />)}
+            {trolls.slice(0, numberOfTrolls).map(troll => <TrollCard key={troll.id} troll={troll} />)}
+            <Button onClick={()=> handleClick()}style={{backgroundColor:'grey'}}>show more</Button>
         </PageContainer>
     )
 }
