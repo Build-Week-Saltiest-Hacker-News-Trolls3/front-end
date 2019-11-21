@@ -18,10 +18,10 @@ const TrollList = () => {
     }, []);
 
     return(
-        <PageContainer>
-            <TitleContainer>
-                <PageTitle>saltiness leaderboard</PageTitle>
-                <PageSubtitle> {"\u2193"} ranked saltiest to least salty {"\u2193"}</PageSubtitle>
+        <PageContainer className='troll-page-container'>
+            <TitleContainer className='troll-page-title-container'>
+                <PageTitle className='troll-page-title'>saltiness leaderboard</PageTitle>
+                <PageSubtitle className='troll-page-subtitle'> {"\u2193"} ranked saltiest to least salty {"\u2193"}</PageSubtitle>
             </TitleContainer>
             {trolls.map(troll => <TrollCard key={troll.id} troll={troll} />)}
         </PageContainer>

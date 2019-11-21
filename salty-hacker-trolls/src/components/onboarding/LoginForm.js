@@ -14,21 +14,21 @@ const LoginForm = ({values, errors, touched, status }) => {
     }, [status]);
 
     return(
-        <FormContainer>
-            <StyledForm>
-                <FormHeader>login</FormHeader>
+        <FormContainer className='form-container'>
+            <StyledForm className='styled-form'>
+                <FormHeader className='form-header'>login</FormHeader>
                 
-                <InputWrapper>
-                    <FormLabel>username:</FormLabel>
-                    <FormField placeholder=' ...' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
+                <InputWrapper className='input-wrapper'>
+                    <FormLabel className='form-label'>username:</FormLabel>
+                    <FormField className='form-field' placeholder=' ...' type='text' name='username'/>{touched.username && errors.username && ( <p className='errors'>{errors.username}</p>)}
+                </InputWrapper>
+                
+                <InputWrapper className='input-wrapper'>
+                    <FormLabel className='form-label'>password:</FormLabel>
+                    <FormField className='form-field' placeholder=' ...' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
                 </InputWrapper>
 
-                <InputWrapper>
-                    <FormLabel>password:</FormLabel>
-                    <FormField placeholder=' ...' type='password' name='password'/>{touched.password && errors.password && ( <p className='errors'>{errors.password}</p>)}
-                </InputWrapper>
-
-                <FormButton type='submit'>submit</FormButton>
+                <FormButton className='form-button' type='submit'>submit</FormButton>
             </StyledForm>
         </FormContainer>
     )

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PanelContainer, Panel, PanelBar, DescTitle, PanelButtonContainer, PanelButton, ButtonImage, PanelText } from "./DescPanelStyles"
+import { PanelContainer, Panel, PanelBar, DescTitle, PanelButtonContainer, PanelButton, ButtonImage, PanelText } from "../../styles/DescPanelStyles"
 
 
 export default function DescPanel({commentContent}) {
