@@ -10,9 +10,6 @@ align-items: center;
 justify-content: center;
 width: 80%;
 margin: 0 auto;
-@media (max-width:500px){
-    padding-top: 60%;  
-   }
 `
 
 export const SuccessContainer = Styled.div`
@@ -34,6 +31,7 @@ flex-direction: column;
 align-items: center;
 justify-content: space-around;
 margin: 0 auto;
+padding-top: 2%;
 box-shadow: 2px 10px 15px;
 width: 100%;
 
@@ -78,4 +76,5 @@ font-size: 2rem;
 border-radius: 5px;
 background: #f56603;
 color: whitesmoke;
+cursor: pointer;
 `

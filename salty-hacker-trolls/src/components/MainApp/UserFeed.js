@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CommentCard from './CommentCard'
 import { fetchComments } from '../../actions'
 import { PageContainer, LoadingMessage, TitleContainer, PageTitle, PageSubtitle } from '../../styles/PageStyles';
+import { Button } from '../../styles/CardStyles';
 
 const UserFeed = ({fetchComments, ...props}) => {
     //destructured fetchComments to put in useEffect dependency array
@@ -20,7 +21,7 @@ const UserFeed = ({fetchComments, ...props}) => {
 
     if (props.isLoading) {
         return (<PageContainer className='loading-container'>
-                    <LoadingMessage className='loading-message'>Loading Comments List...</LoadingMessage>
+                    <LoadingMessage className='loading-message'>loading comments...</LoadingMessage>
                 </PageContainer>)
     }
     
@@ -36,7 +37,7 @@ const UserFeed = ({fetchComments, ...props}) => {
                 {props.error && <p>{props.error}</p>}
                 {props.comments.slice(0, numberOfComments).map(comment => <CommentCard comment={comment} key={comment.comment_uuid} />)}
             </div>
-            <button onClick={()=> handleClick()}>Show more</button>
+            <Button onClick={()=> handleClick()}style={{backgroundColor:'grey'}}>show more</Button>
         </PageContainer>
     )
 }

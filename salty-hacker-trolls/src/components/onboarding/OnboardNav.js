@@ -6,7 +6,7 @@ const OnboardNav = () => {
     return(
         <NavContainer className='nav-container'>
             <Nav className='nav-bar'>
-                <NavTitle className='nav-title'>Hacker News' Saltiest Trolls</NavTitle>
+                <a href='https://build-week-saltiest-hacker-news-trolls3.github.io/marketing-page/'><NavTitle className='nav-title'>HackerNews' SaltiestTrolls</NavTitle></a>
                 <Links className='links-container'>
                     <StyledNavLink to='/' className='login-link'>login</StyledNavLink>
                     <p> | </p>  

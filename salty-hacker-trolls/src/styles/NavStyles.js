@@ -23,21 +23,22 @@ justify-content: space-between;
 align-items: center;
 align-text: center;
 max-width: 100%;
-padding: 0 1%;
+padding: 1%;
+font-size: 2rem;
 z-index: 1;
+a{
+    text-decoration: none;
+    color: black;
+}
 @media (max-width:500px){
     width: 100%;
     justify-content: space-around;
    }
-p{
-    font-size: 1.2rem;
-}
 `
 
 export const NavTitle = Styled.h1`
 padding: 0 1%;
 white-space: nowrap;
-font-size: 1.2rem
 `
 
 export const Links = Styled.div`
@@ -47,8 +48,8 @@ justify-content: space-between;
 `
 
 export const StyledNavLink = Styled(NavLink)`
-font-size: 1.2rem;
 text-decoration: none;
+font-size: 1.6rem;
 color: black;
 white-space: nowrap;
 max-width: 100%
