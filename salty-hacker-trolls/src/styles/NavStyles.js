@@ -8,6 +8,9 @@ padding-top: 1%;
 width: 100%;
 position: fixed;
 z-index: 1;
+@media (max-width:500px){
+    padding: 0;
+   }
 `
 
 export const Nav = Styled.nav`
@@ -16,7 +19,7 @@ margin: 0 auto;
 background: #f56603;
 display: flex;
 flex-wrap: wrap;
-justify-content: space-around;
+justify-content: space-between;
 align-items: center;
 align-text: center;
 max-width: 100%;
@@ -24,6 +27,7 @@ padding: 0 1%;
 z-index: 1;
 @media (max-width:500px){
     width: 100%;
+    justify-content: space-around;
    }
 p{
     font-size: 1.2rem;

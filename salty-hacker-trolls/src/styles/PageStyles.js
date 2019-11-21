@@ -16,13 +16,14 @@ h1, h2{
 }
 `
 export const LoadingMessage = Styled.h2`
+padding: 0 1%;
 color: #828282;
 `
 
 export const TitleContainer = Styled.div`
 display: flex;
 flex-wrap: wrap;
-justify-content: space-around;
+justify-content: center;
 align-items: baseline;
 border-bottom: 1px solid #828282;
 `

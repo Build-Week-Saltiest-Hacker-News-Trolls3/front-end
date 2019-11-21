@@ -3,10 +3,13 @@ import { Form, Field } from 'formik';
 
 export const FormContainer = Styled.div`
 background-color: #f6f6ef;
-height: 100vh;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 width: 80%;
 margin: 0 auto;
-padding: 20% 0;
 @media (max-width:500px){
     padding-top: 60%;  
    }
