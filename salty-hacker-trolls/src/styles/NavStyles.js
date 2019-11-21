@@ -4,14 +4,15 @@ import { NavLink } from 'react-router-dom';
 export const NavContainer = Styled.div`
 text-align: center;
 background: white;
-position: fixed;
-padding: 1%;
+padding-top: 1%;
 width: 100%;
+position: fixed;
+z-index: 1;
 `
 
 export const Nav = Styled.nav`
 width: 78%;
-margin: 1% auto;
+margin: 0 auto;
 background: #f56603;
 display: flex;
 flex-wrap: wrap;
@@ -20,7 +21,10 @@ align-items: center;
 align-text: center;
 max-width: 100%;
 padding: 0 1%;
-
+z-index: 1;
+@media (max-width:500px){
+    width: 100%;
+   }
 p{
     font-size: 1.2rem;
 }

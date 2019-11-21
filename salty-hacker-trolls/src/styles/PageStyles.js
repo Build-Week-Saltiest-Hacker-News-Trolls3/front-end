@@ -7,7 +7,8 @@ width: 80%;
 margin: 0 auto;
 padding-top: 7%;
 @media (max-width:500px){
-    padding-top: 30%;  
+    padding-top: 30%;
+    width: 95%;
    }
 
 h1, h2{

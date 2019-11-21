@@ -11,3 +11,12 @@ h2{
     }
 }
 `
+export const ScoreContainer = Styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+export const Score = Styled.h3`
+    margin: 0;
+    padding: 0;
+`
