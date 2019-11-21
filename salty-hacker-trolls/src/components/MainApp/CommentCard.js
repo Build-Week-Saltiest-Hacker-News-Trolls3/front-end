@@ -3,7 +3,7 @@ import axiosWithAuth from '../../utils/AxiosWithAuth'
 import { connect } from 'react-redux';
 import Stars from './Stars';
 import DescPanel from './DescPanel'
-import { Card, ScoreContainer, Score } from '../../styles/CardStyles';
+import { Card, ScoreContainer, Score, Button } from '../../styles/CardStyles';
 
 const CommentCard = (props) => {
     // console.log('commentcard props', props)
@@ -26,6 +26,7 @@ const CommentCard = (props) => {
         .post(`/api/users/${props.userID}/favorites/${props.comment.comment_uuid}`)
         .then(response => { 
             console.log('post newFav', response)
+            alert('added to favorites')
             })
         .catch(error => console.error('Server Error', error.message));
     }
@@ -36,12 +37,12 @@ const CommentCard = (props) => {
         <Card className='commentCard'>
             <h3>{props.comment.troll_name}</h3>
             {troll ? 
-            <ScoreContainer className='scoreContainer'><div><Score>Troll Salty Score:</Score></div><Stars saltyRank={troll.salty_rank} /></ScoreContainer> 
+            <ScoreContainer className='scoreContainer'><div><Score>saltiness:</Score></div><Stars saltyRank={troll.salty_rank} /></ScoreContainer> 
             : <h3>Loading...</h3>}
             <DescPanel commentContent={props.comment.comment_text} />
-            <button className='favButton' onClick={addNewFav}>
+            <Button className='favButton' onClick={addNewFav}>
 				+favorites
-			</button>
+			</Button>
         </Card>
     )
 }

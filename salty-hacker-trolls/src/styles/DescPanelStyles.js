@@ -20,8 +20,8 @@ export const PanelBar = styled.div`
     background: whitesmoke;
 `;
 
-export const DescTitle = styled.h3`
-    font-size: 1rem;
+export const DescTitle = styled.h4`
+    font-size: 1.2rem;
     padding: 0px;
     padding-top: 5px;
     margin: 0px;
@@ -51,7 +51,7 @@ export const ButtonImage = styled.img`
 `;
 
 export const PanelText = styled.p`
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 0;
     padding-bottom: 5px;
     padding-left: 5px;

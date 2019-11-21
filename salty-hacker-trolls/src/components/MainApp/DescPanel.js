@@ -11,7 +11,7 @@ export default function DescPanel({commentContent}) {
     return (
            <Panel className="Panel">
                <PanelBar className="PanelBar">
-                        <PanelButton className="PanelButton" onClick={() => setShowText(!showText)}><DescTitle>Salty comment</DescTitle>
+                        <PanelButton className="PanelButton" onClick={() => setShowText(!showText)}><DescTitle>salty comment</DescTitle>
                             <ButtonImage className="ButtonImage" src={ require('../images/icons8-ellipsis-50-orange.png')} alt="ellipse" />
                         </PanelButton>
                     <div className="PanelContent">
