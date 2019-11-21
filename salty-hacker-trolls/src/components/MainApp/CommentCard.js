@@ -3,7 +3,7 @@ import axiosWithAuth from '../../utils/AxiosWithAuth'
 import { connect } from 'react-redux';
 import Stars from './Stars';
 import DescPanel from './DescPanel'
-import styled from 'styled-components';
+import { Card, ScoreContainer, Score } from '../../styles/CardStyles';
 
 const CommentCard = (props) => {
     // console.log('commentcard props', props)
@@ -33,16 +33,16 @@ const CommentCard = (props) => {
 //   console.log("Troll", troll)
     
     return (
-        <div className='commentCard'>
-            <h3>Troll Name: {props.comment.troll_name}</h3>
+        <Card className='commentCard'>
+            <h3>{props.comment.troll_name}</h3>
             {troll ? 
             <ScoreContainer className='scoreContainer'><div><Score>Troll Salty Score:</Score></div><Stars saltyRank={troll.salty_rank} /></ScoreContainer> 
             : <h3>Loading...</h3>}
             <DescPanel commentContent={props.comment.comment_text} />
-            <button onClick={addNewFav}>
-				Add to Favorites
+            <button className='favButton' onClick={addNewFav}>
+				+favorites
 			</button>
-        </div>
+        </Card>
     )
 }
 
@@ -53,13 +53,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {})(CommentCard);
-
-const ScoreContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-`;
-
-const Score = styled.h3`
-    margin: 0;
-    padding: 0;
-`
