@@ -5,17 +5,23 @@ background-color: #f6f6ef;
 height: 100%;
 width: 80%;
 margin: 0 auto;
-padding-top: 7%;
+padding: 1% 0;
+padding-top: 6%;
 @media (max-width:500px){
-    padding-top: 30%;
+    padding-top: 27%;
     width: 95%;
    }
 
 h1, h2{
+    font-size: 2rem;
     color: #828282;
+}
+h4{
+    font-size: 1.6rem;
 }
 `
 export const LoadingMessage = Styled.h2`
+text-align: center;
 padding: 0 1%;
 color: #828282;
 `

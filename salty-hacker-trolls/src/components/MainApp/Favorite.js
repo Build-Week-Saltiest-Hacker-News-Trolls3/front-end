@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axiosWithAuth from '../../utils/AxiosWithAuth';
 import DescPanel from './DescPanel';
-import { Card } from '../../styles/CardStyles';
+import { Card, Button } from '../../styles/CardStyles';
 
 const Favorite = (props) => {
     console.log('Favorite props', props)
@@ -24,11 +24,11 @@ const Favorite = (props) => {
 
     return (
         <Card className='favoriteCard'>
-            <h3>Troll Name: {props.fav.troll_username}</h3>
+            <h3>{props.fav.troll_username}</h3>
             <DescPanel commentContent={props.fav.troll_comment} />
-            <button className='delete-button' onClick={deleteFav}>
-				Delete
-			</button>
+            <Button className='delete-button' onClick={deleteFav} style={{backgroundColor:'firebrick'}}>
+				-delete
+			</Button>
         </Card>
     )
 }
