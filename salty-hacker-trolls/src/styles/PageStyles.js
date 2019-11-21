@@ -8,7 +8,7 @@ margin: 0 auto;
 padding: 1% 0;
 padding-top: 6%;
 @media (max-width:500px){
-    padding-top: 25%;
+    padding-top: 27%;
     width: 95%;
    }
 
