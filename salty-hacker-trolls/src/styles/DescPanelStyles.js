@@ -36,6 +36,7 @@ export const PanelButton = styled.button`
     width: 50%;
     background: whitesmoke;
     border: none;
+    outline: none;
 `;
 
 export const ButtonImage = styled.img`
