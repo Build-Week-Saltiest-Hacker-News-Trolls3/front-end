@@ -30,7 +30,7 @@ const TrollList = () => {
                 <PageTitle className='troll-page-title'>saltiness leaderboard</PageTitle>
                 <PageSubtitle className='troll-page-subtitle'> {"\u2193"} ranked saltiest to least salty {"\u2193"}</PageSubtitle>
             </TitleContainer>
-            {trolls.slice(0, numberOfTrolls).map(troll => <TrollCard key={troll.id} troll={troll} />)}
+            {trolls.slice(0, numberOfTrolls).sort((a,b) => (a.salty_rank > b.salty_rank)? 1 : -1).map(troll => <TrollCard key={troll.id} troll={troll} />)}
             <Button onClick={()=> handleClick()}style={{backgroundColor:'grey'}}>show more</Button>
         </PageContainer>
     )
