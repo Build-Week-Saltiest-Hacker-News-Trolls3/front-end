@@ -1,6 +1,6 @@
 # front-end
 
-# deployed site: [https://salty-hacker-trolls.jessicagc.now.sh](https://salty-hacker-trolls.jessicagc.now.sh/)
+# deployed site: https://front-end.hackernewstrolls.now.sh/
 
 Saltiest Hacker News Trolls Product Vision Document
 Proposal
