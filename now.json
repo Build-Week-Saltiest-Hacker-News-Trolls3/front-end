@@ -9,7 +9,7 @@
     }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "app/static/$1" },
-    { "src": "/(.*)", "dest": "app/index.html" }
+    { "src": "/static/(.*)", "dest": "salty-hacker-trolls/static/$1" },
+    { "src": "/(.*)", "dest": "salty-hacker-trolls/index.html" }
   ]
 }
