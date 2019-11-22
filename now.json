@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "salty-hacker-trolls",
+  "builds": [
+    {
+      "src": "salty-hacker-trolls/package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "routes": [
+    { "src": "/static/(.*)", "dest": "salty-hacker-trolls/static/$1" },
+    { "src": "/(.*)", "dest": "salty-hacker-trolls/index.html" }
+  ]
+}
