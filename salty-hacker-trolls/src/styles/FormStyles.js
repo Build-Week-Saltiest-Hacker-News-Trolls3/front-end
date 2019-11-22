@@ -78,3 +78,15 @@ background: #f56603;
 color: whitesmoke;
 cursor: pointer;
 `
+
+export const Input = Styled.input`
+height: 45px;
+width: 300px;
+margin: 3%;
+font-size: 1.6rem;
+border-radius: 5px;
+@media (max-width:500px){
+    height 1.2rem;
+    width: 15rem;   
+   }
+`
