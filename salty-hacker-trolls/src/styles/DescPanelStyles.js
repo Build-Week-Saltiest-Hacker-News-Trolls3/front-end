@@ -59,4 +59,5 @@ export const PanelText = styled.p`
     line-height: 1.5;
     color: black;
     max-width: 100%;
+    word-wrap: break-word;
 `;
