@@ -9,11 +9,7 @@
     }
   ],
   "routes": [
-    { "src": "^/(.*)", "dest": "/salty-hacker-trolls/index.html" },
-    {
-      "src": "^/static/(.*)",
-      "headers": { "cache-control": "s-maxage=31536000,immutable" },
-      "dest": "/salty-hacker-trolls/static/$1"
-    }
+    { "src": "/static/(.*)", "dest": "app/static/$1" },
+    { "src": "/(.*)", "dest": "app/index.html" }
   ]
 }
