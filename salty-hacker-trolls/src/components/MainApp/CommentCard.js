@@ -39,7 +39,7 @@ const CommentCard = (props) => {
         <Card className='commentCard'>
             <h3>{props.comment.troll_name}</h3>
             {troll ? 
-            <ScoreContainer className='scoreContainer'><div><Score>saltiness:</Score></div><Stars saltyRank={rank} /></ScoreContainer> 
+            <ScoreContainer className='scoreContainer'><div><Score>troll saltiness:</Score></div><Stars saltyRank={rank} /></ScoreContainer> 
             : <h3>Loading...</h3>}
             <DescPanel commentContent={props.comment.comment_text} />
             <Button className='favButton' onClick={addNewFav}>
