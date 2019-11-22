@@ -9,5 +9,5 @@
         "config": { "distDir": "build" }
       }
     ],
-    "routes": [{ "src": "/(.*)", "dest": "/salty-hacker-trolls/$1" }]
+    "routes": [{ "src": "/salty-hacker-trolls/static/(.*)", "dest": "/salty-hacker-trolls/static/$1" }]
   }
