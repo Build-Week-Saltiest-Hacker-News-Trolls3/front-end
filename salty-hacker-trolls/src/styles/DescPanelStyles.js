@@ -52,12 +52,11 @@ export const ButtonImage = styled.img`
 
 export const PanelText = styled.p`
     font-size: 1.2rem;
-    padding: 0;
-    padding-bottom: 5px;
-    padding-left: 5px;
+    padding: 1%;
     margin: 0;
     font-family: 'Roboto', sans-serif;
     text-align: justify;
     line-height: 1.5;
     color: black;
+    max-width: 100%;
 `;
